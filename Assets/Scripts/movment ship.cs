@@ -1,16 +1,14 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class movement : MonoBehaviour
+public class movement_ship : MonoBehaviour
 {
 
     public float playerspeed = 1f;
     
-    Rigidbody2D m_Rigidbody;
 
 
 
@@ -18,19 +16,15 @@ public class movement : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(0f, -4f, 0);
-        m_Rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector3.down * playerspeed);
-        }
+
         if (Input.GetKey(KeyCode.W))
         {
-            m_Rigidbody.AddForce(Vector3.up * playerspeed);
+            transform.Translate(Vector3.up * playerspeed);
         }
 
         if (Input.GetKey(KeyCode.A))
@@ -41,8 +35,10 @@ public class movement : MonoBehaviour
         {
             transform.Translate(Vector3.right * playerspeed);
         }
-        
-        
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.Translate(Vector3.down * playerspeed);
+        }
 
     }
 }
