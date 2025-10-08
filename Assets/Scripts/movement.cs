@@ -9,40 +9,44 @@ public class movement : MonoBehaviour
 {
 
     public float playerspeed = 1f;
-    
-    Rigidbody2D m_Rigidbody;
-
+    public float jumpspeed = 1f;
+    Rigidbody2D fysik;
+    Animator objAnimator;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         transform.position = new Vector3(0f, -4f, 0);
-        m_Rigidbody = GetComponent<Rigidbody2D>();
+        fysik = GetComponent<Rigidbody2D>();
+        objAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector3.down * playerspeed);
-        }
+
         if (Input.GetKey(KeyCode.W))
         {
-            m_Rigidbody.AddForce(Vector3.up * playerspeed);
+            fysik.AddForce(Vector3.up * jumpspeed);
+            objAnimator.SetBool("isJumping", true);
         }
+        else
+        {
+            objAnimator.SetBool("isJumping", false);
+        }
+
 
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector3.left * playerspeed);
+
         }
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right * playerspeed);
+
         }
-        
-        
 
     }
 }
