@@ -26,7 +26,7 @@ public class movement_ship : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(laserShot, transform.position + spawnPosition, Quaternion.identity);
             Instantiate(laserShot, transform.position + spawnPosition2, Quaternion.identity);

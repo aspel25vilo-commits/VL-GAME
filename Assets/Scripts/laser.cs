@@ -2,10 +2,6 @@ using UnityEngine;
 
 public class laser : MonoBehaviour
 {
-    public float laserspeed;
-
-    public class laserBehaviour : MonoBehaviour
-    {
         public float laserSpeed;
         public GameObject exs;
 
@@ -28,19 +24,14 @@ public class laser : MonoBehaviour
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.tag == "Player")
-            {
-                other.GetComponent<movement_ship>().takedamge();
-            }
             if (other.tag == "Enemy")
             {
                 other.GetComponent<enemy>().enemythealth--;
+                Debug.Log("Hit " + other.name);
+                Instantiate(exs, transform.position, Quaternion.identity);
 
-            }
-            Debug.Log("Hit " + other.name);
-            Instantiate(exs, transform.position, Quaternion.identity);
-
-            Destroy(this.gameObject);
+                Destroy(this.gameObject);
         }
-    }
+            
+        }
 }
