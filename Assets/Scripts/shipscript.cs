@@ -8,7 +8,12 @@ public class movement_ship : MonoBehaviour
 {
 
     public float playerspeed = 1f;
-    
+    public int playerhealth = 1;
+
+    public GameObject laserShot;
+    public Vector3 spawnPosition;
+    public Vector3 spawnPosition2;
+
 
 
 
@@ -21,7 +26,11 @@ public class movement_ship : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Instantiate(laserShot, transform.position + spawnPosition, Quaternion.identity);
+            Instantiate(laserShot, transform.position + spawnPosition2, Quaternion.identity);
+        }
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.up * playerspeed);
@@ -39,7 +48,22 @@ public class movement_ship : MonoBehaviour
         {
             transform.Translate(Vector3.down * playerspeed);
         }
+        if (playerhealth < 1)
+        {
+            Destroy(this.gameObject);
+        }
 
     }
+
+    public void takedamge()
+    {
+        playerhealth--;
+    }
+
+
+    
+    
+
+    
 }
 
