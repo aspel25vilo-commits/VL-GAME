@@ -24,14 +24,18 @@ public class laser : MonoBehaviour
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.tag == "Enemy")
+            if (other.tag == "enemy")
             {
-                other.GetComponent<enemy>().enemythealth--;
-                Debug.Log("Hit " + other.name);
+                other.GetComponent<enemy>().takedamge();
+                Debug.Log("Hit" + other.name);
                 Instantiate(exs, transform.position, Quaternion.identity);
+                
 
-                Destroy(this.gameObject);
-        }
-            
+
+            Destroy(this.gameObject);
+            }
+        //other.GetComponent<movement_ship>().takedamge();
+
+                   
         }
 }
