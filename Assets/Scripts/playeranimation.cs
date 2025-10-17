@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class playeranimation : MonoBehaviour
 {
-    private Animator objAnimator;
+    public Animator objAnimator;
     private SpriteRenderer fhillip;
     private void Start()
     {

@@ -5,6 +5,7 @@ public class enemy : MonoBehaviour
     public int enemythealth;
     public float enemyspeed = 1f;
     public GameObject txtobj;
+    public GameObject exs;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +22,8 @@ public class enemy : MonoBehaviour
         {
             txtobj.GetComponent<point>().addpoints(1);
             Destroy(this.gameObject);
+            Instantiate(exs, transform.position, Quaternion.identity);
+            
         }
             
         
@@ -36,10 +39,13 @@ public class enemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        /*if (other.tag == "laser")
+        if (other.tag == "Player")
         {
-            Destroy(this.gameObject);
-        }*/
+            other.GetComponent<movement_ship>().takedamge();
+            Destroy(gameObject);
+            Instantiate(exs, transform.position, Quaternion.identity);
+            
+        }
     }
 }
 

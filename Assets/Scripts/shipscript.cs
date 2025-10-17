@@ -14,13 +14,15 @@ public class movement_ship : MonoBehaviour
     public Vector3 spawnPosition;
     public Vector3 spawnPosition2;
 
-
+    public GameObject txtobjc;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        txtobjc = GameObject.Find("lifecounter");
         transform.position = new Vector3(0f, -4f, 0);
+        
     }
 
     // Update is called once per frame
@@ -58,6 +60,18 @@ public class movement_ship : MonoBehaviour
     public void takedamge()
     {
         playerhealth--;
+        if (playerhealth < 3)
+        {
+            Destroy(GameObject.Find("life3"));
+        }
+        if (playerhealth < 2)
+        {
+            Destroy(GameObject.Find("life2"));
+        }
+        if (playerhealth < 1)
+        {
+            Destroy(GameObject.Find("life1"));
+        }
     }
 
 
