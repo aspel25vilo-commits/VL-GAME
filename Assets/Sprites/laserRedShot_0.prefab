@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3242244182189993628}
   - component: {fileID: 2759321310140133725}
-  - component: {fileID: -3707442237510997233}
+  - component: {fileID: -1108690929824939608}
   m_Layer: 0
   m_Name: laserRedShot_0
   m_TagString: Untagged
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-3707442237510997233
+--- !u!114 &-1108690929824939608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9012043209502725557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28ab1bdb52dbc094cbbfdf050135321c, type: 3}
+  m_Script: {fileID: 11500000, guid: 85c071bdae41490419384f943f016916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   a: 0.1
