@@ -26,9 +26,9 @@ public class movement : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            fysik.AddForce(Vector3.up * jumpspeed);
+            fysik.AddForce(Vector3.up * jumpspeed,ForceMode2D.Impulse);
             objAnimator.SetBool("isJumping", true);
         }
         else

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - laser
   - enemy
+  - Grounded
+  - Ground
   layers:
   - Default
   - TransparentFX
