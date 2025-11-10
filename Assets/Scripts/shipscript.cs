@@ -6,15 +6,18 @@ using UnityEngine.UI;
 
 public class movement_ship : MonoBehaviour
 {
-
+    public bool power;
     public float playerspeed = 1f;
     public int playerhealth = 1;
 
     public GameObject laserShot;
+    public GameObject megalaser;
     public Vector3 spawnPosition;
     public Vector3 spawnPosition2;
+    public Vector3 spawnPosition3;
 
     public GameObject txtobjc;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,28 +31,46 @@ public class movement_ship : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float moveX = 0f;
+        float moveY = 0f;
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(laserShot, transform.position + spawnPosition, Quaternion.identity);
-            Instantiate(laserShot, transform.position + spawnPosition2, Quaternion.identity);
+            if (power == true)
+            {
+                Instantiate(megalaser,new Vector3(transform.position.x,transform.position.y+5,0), Quaternion.identity);
+                power = false;
+            }
+            else
+            {
+                Instantiate(laserShot, transform.position + spawnPosition, Quaternion.identity);
+                Instantiate(laserShot, transform.position + spawnPosition2, Quaternion.identity);
+            }
         }
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(Vector3.up * playerspeed);
+            
+            moveY = 1f;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+   
+            moveY = -1f;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * playerspeed);
+            
+            moveX = -1f;
         }
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * playerspeed);
+            
+            moveX = 1f;
+
         }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector3.down * playerspeed);
-        }
+        Vector3 move = new Vector3(moveX, moveY, 0f).normalized;
+        transform.Translate(move * playerspeed * Time.deltaTime);
+        
         if (playerhealth < 1)
         {
             Destroy(this.gameObject);
@@ -73,6 +94,8 @@ public class movement_ship : MonoBehaviour
             Destroy(GameObject.Find("life1"));
         }
     }
+
+   
 
 
     

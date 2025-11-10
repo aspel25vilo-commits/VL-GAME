@@ -285,6 +285,12 @@ MonoBehaviour:
   enemyGameObject: {fileID: 6255131896276749689, guid: c0abc0b93012f034886505a9461b82c1, type: 3}
   spawnCooldown: 1
   canspawn: 1
+  powerobj: {fileID: 1250289447036060064, guid: 230465d6b85f581478b77991bbdf1573, type: 3}
+  canpowerup: 1
+  powercoldown: 10
+  enemyGameObject2: {fileID: 5675894850981122919, guid: 4e509071d235f3349b042b8f21e5a0fb, type: 3}
+  spawnCooldown2: 3
+  canspawn2: 1
   minValue: -12
   maxValue: 12
 --- !u!4 &188476698
@@ -534,7 +540,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.4745098, g: 0.19215688, b: 0.1981816, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -974,6 +980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txt: {fileID: 0}
   points: 1
+  score: 'Score: '
 --- !u!114 &892064563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1105,11 +1112,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ff5998853649e42a2f05e494439bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerspeed: 0.05
+  power: 0
+  playerspeed: 20
   playerhealth: 3
   laserShot: {fileID: 9067753073159499450, guid: e6f5e9237f333c54aac0e3c20b70b109, type: 3}
+  megalaser: {fileID: 228207079782324201, guid: 316342d85a7299648a748bf194d808c9, type: 3}
   spawnPosition: {x: 0.8, y: 0.3, z: 0}
   spawnPosition2: {x: -0.8, y: 0.3, z: 0}
+  spawnPosition3: {x: 0, y: 0, z: 0}
   txtobjc: {fileID: 0}
 --- !u!61 &912392762
 BoxCollider2D:
@@ -1200,7 +1210,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4334783836991956000, guid: ed0781d5479b86740a399e4145a5caff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1660,7 +1670,7 @@ Transform:
   m_GameObject: {fileID: 2132053674}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0749, y: 6.48, z: 0}
+  m_LocalPosition: {x: 0.1, y: 5.65, z: 0}
   m_LocalScale: {x: 25.958849, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

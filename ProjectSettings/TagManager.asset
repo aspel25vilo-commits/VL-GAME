@@ -8,6 +8,8 @@ TagManager:
   - enemy
   - Grounded
   - Ground
+  - power_up
+  - powerful
   layers:
   - Default
   - TransparentFX

@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class laser : MonoBehaviour
+public class megalaserscript : MonoBehaviour
 {
         public float laserSpeed;
-        public GameObject exs;
+        
 
         // Start is called before the first frame update
         void Start()
@@ -16,7 +16,7 @@ public class laser : MonoBehaviour
         {
             transform.Translate(Vector3.up * laserSpeed * Time.deltaTime);
 
-            if (transform.position.y < -10 || transform.position.y > 10)
+            if (transform.position.y < -200 || transform.position.y > 200)
             {
                 Destroy(this.gameObject);
             }
@@ -26,13 +26,13 @@ public class laser : MonoBehaviour
         {
             if (other.tag == "enemy")
             {
-                other.GetComponent<enemy>().takedamge(1);
+                other.GetComponent<enemy>().takedamge(10);
                 Debug.Log("Hit" + other.name);
-                Instantiate(exs, transform.position, Quaternion.identity);
+                
                 
 
 
-            Destroy(this.gameObject);
+            
             }
         //other.GetComponent<movement_ship>().takedamge();
 

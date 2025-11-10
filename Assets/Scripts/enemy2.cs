@@ -1,35 +1,47 @@
+using System.Collections;
 using UnityEngine;
 
-public class enemy : MonoBehaviour
+public class enemy2 : MonoBehaviour
 {
     public int enemythealth;
     public float enemyspeed = 1f;
     public GameObject txtobj;
     public GameObject exs;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Vector3 movement = Vector3.zero;
     void Start()
     {
         txtobj = GameObject.Find("pointcounter");
+        StartCoroutine(Enmove());
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        transform.Translate(Vector3.down * enemyspeed * Time.deltaTime);
-
+        transform.Translate(movement.normalized * enemyspeed * Time.deltaTime); 
         if (enemythealth < 1)
         {
-            txtobj.GetComponent<point>().addpoints(1);
+            txtobj.GetComponent<point>().addpoints(2);
             Destroy(this.gameObject);
             Instantiate(exs, transform.position, Quaternion.identity);
             
         }
-            
-        
+           
+    }
+    IEnumerator Enmove()
+    {
+        while (true)
+        {
+            int rull = 0;
+            while (rull == 0)
+            {
+                rull = Random.Range(-1, 2);
+            }
 
-
-
+            movement.x = rull;
+            movement.y = -1;
+            yield return new WaitForSeconds(1f);
+        }
 
     }
     public void takedamge(int dgtotake)
