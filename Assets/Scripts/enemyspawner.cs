@@ -13,6 +13,12 @@ public class enemyspawner : MonoBehaviour
     public GameObject enemyGameObject2;
     public float spawnCooldown2;
     public bool canspawn2 = true;
+    public GameObject powerobj2;
+    public bool canpowerup2 = true;
+    public float powercoldown2;
+    public GameObject motherobj;
+    public bool canmother= true;
+    public float mothercoldown;
 
     [Header("Randomise Spawn Location")]
     public float minValue;
@@ -36,13 +42,24 @@ public class enemyspawner : MonoBehaviour
             StartCoroutine(EnemySpawner());
             canspawn = false;
         }
-        
+
         if (powerobj != null && canpowerup == true)
         {
             StartCoroutine(Powerup1());
             canpowerup = false;
         }
-        
+
+        if (powerobj2 != null && canpowerup2 == true)
+        {
+            StartCoroutine(Powerup2());
+            canpowerup2 = false;
+        }
+        if (motherobj != null && canmother == true)
+        {
+            StartCoroutine(Mother());
+            canmother = false;
+        }
+
     }
 
     private IEnumerator EnemySpawner()
@@ -86,5 +103,34 @@ public class enemyspawner : MonoBehaviour
         }
         yield return new WaitForSeconds(powercoldown);
         canpowerup = true;
+    }
+
+    private IEnumerator Powerup2()
+    {
+        if (minValue == 0 && maxValue == 0)
+        {
+            Instantiate(powerobj2, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Vector2 randomLocation = new Vector2(Random.Range(minValue, maxValue), transform.position.y);
+            Instantiate(powerobj2, randomLocation, Quaternion.identity);
+        }
+        yield return new WaitForSeconds(powercoldown2);
+        canpowerup2 = true;
+    }
+    private IEnumerator Mother()
+    {
+        if (minValue == 0 && maxValue == 0)
+        {
+            Instantiate(enemyGameObject, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Vector2 randomLocation = new Vector2(Random.Range(minValue, maxValue), transform.position.y);
+            Instantiate(motherobj, randomLocation, Quaternion.identity);
+        }
+        yield return new WaitForSeconds(mothercoldown);
+        canmother = true;
     }
 }

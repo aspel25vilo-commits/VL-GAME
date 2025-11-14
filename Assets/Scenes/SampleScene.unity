@@ -283,14 +283,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyGameObject: {fileID: 6255131896276749689, guid: c0abc0b93012f034886505a9461b82c1, type: 3}
-  spawnCooldown: 1
+  spawnCooldown: 2
   canspawn: 1
   powerobj: {fileID: 1250289447036060064, guid: 230465d6b85f581478b77991bbdf1573, type: 3}
   canpowerup: 1
   powercoldown: 10
   enemyGameObject2: {fileID: 5675894850981122919, guid: 4e509071d235f3349b042b8f21e5a0fb, type: 3}
-  spawnCooldown2: 3
+  spawnCooldown2: 2.5
   canspawn2: 1
+  powerobj2: {fileID: 4840434207279452488, guid: 3d370a760ca2c5743b35312f13042287, type: 3}
+  canpowerup2: 1
+  powercoldown2: 20
+  motherobj: {fileID: 2841587567326710818, guid: e32592aa1eb21ac45821db54c4998ea2, type: 3}
+  canmother: 1
+  mothercoldown: 30
   minValue: -12
   maxValue: 12
 --- !u!4 &188476698

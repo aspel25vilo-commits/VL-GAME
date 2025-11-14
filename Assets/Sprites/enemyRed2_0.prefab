@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemythealth: 2
-  enemyspeed: 1
+  enemyspeed: 1.5
   txtobj: {fileID: 0}
   exs: {fileID: 4231028539223777439, guid: 735ff8a7856a51e408c3823f91073fe9, type: 3}
 --- !u!61 &1794391847038340073
@@ -150,7 +150,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.04, y: 0.84}
+  m_Size: {x: 1.3, y: 0.6}
   m_EdgeRadius: 0
 --- !u!50 &6694708119798037273
 Rigidbody2D:

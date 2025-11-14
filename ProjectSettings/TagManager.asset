@@ -10,6 +10,8 @@ TagManager:
   - Ground
   - power_up
   - powerful
+  - enemy2
+  - mother
   layers:
   - Default
   - TransparentFX

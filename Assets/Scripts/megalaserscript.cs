@@ -29,13 +29,17 @@ public class megalaserscript : MonoBehaviour
                 other.GetComponent<enemy>().takedamge(10);
                 Debug.Log("Hit" + other.name);
                 
-                
+               
+            }
+            if (other.tag == "enemy2")
+            {
+                other.GetComponent<enemy2>().takedamge(10);
+                Debug.Log("Hit" + other.name);
 
 
-            
             }
         //other.GetComponent<movement_ship>().takedamge();
 
-                   
-        }
+
+    }
 }

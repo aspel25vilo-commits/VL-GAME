@@ -33,9 +33,35 @@ public class laser : MonoBehaviour
 
 
             Destroy(this.gameObject);
-            }
-        //other.GetComponent<movement_ship>().takedamge();
 
-                   
+
+            }
+            if (other.tag == "enemy2")
+            {
+                other.GetComponent<enemy2>().takedamge(1);
+                Debug.Log("Hit" + other.name);
+                Instantiate(exs, transform.position, Quaternion.identity);
+
+
+
+                Destroy(this.gameObject);
+            }
+        if (other.tag == "mother")
+        {
+            other.GetComponent<mother>().takedamge(1);
+            Debug.Log("Hit" + other.name);
+            Instantiate(exs, transform.position, Quaternion.identity);
+
+
+
+            Destroy(this.gameObject);
         }
+
+
+    }
+       
+
+
+
+
 }

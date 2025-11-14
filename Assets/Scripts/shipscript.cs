@@ -17,7 +17,11 @@ public class movement_ship : MonoBehaviour
     public Vector3 spawnPosition3;
 
     public GameObject txtobjc;
-    
+    private GameObject life3;
+    private GameObject life2;
+    private GameObject life1;
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,10 +31,20 @@ public class movement_ship : MonoBehaviour
         transform.position = new Vector3(0f, -4f, 0);
         
     }
+    private void Awake()
+    {
+        life3 = GameObject.Find("life3");
+        life2 = GameObject.Find("life2");
+        life1 = GameObject.Find("life1");
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if (playerhealth > 3)
+        {
+            playerhealth = 3;
+        }
         float moveX = 0f;
         float moveY = 0f;
         if (Input.GetKeyDown(KeyCode.Space))
@@ -83,24 +97,42 @@ public class movement_ship : MonoBehaviour
         playerhealth--;
         if (playerhealth < 3)
         {
-            Destroy(GameObject.Find("life3"));
+            life3.SetActive(false);
         }
         if (playerhealth < 2)
         {
-            Destroy(GameObject.Find("life2"));
+            life2.SetActive(false);
         }
         if (playerhealth < 1)
         {
-            Destroy(GameObject.Find("life1"));
+            life1.SetActive(false);
         }
     }
 
-   
+    public void healdamge()
+    {
+        playerhealth = 3;
+        if (playerhealth == 1)
+        {
+            life1.SetActive(true);
+        }
+        if (playerhealth == 2) 
+        {
+            life2.SetActive(true);
+        }
+        if (playerhealth == 3)
+        {
+            life3.SetActive(true);
+        }
+    }
 
 
-    
-    
 
-    
+
+
+
+
+
+
 }
 

@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57d6986ce02ff142a77763c30ad0065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserSpeed: 20
+  laserSpeed: 30
   exs: {fileID: 9012043209502725557, guid: 10e2a0234e02955488ba556a067994d4, type: 3}
 --- !u!61 &-227904948677914021
 BoxCollider2D:
