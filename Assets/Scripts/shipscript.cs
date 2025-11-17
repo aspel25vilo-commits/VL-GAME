@@ -20,6 +20,8 @@ public class movement_ship : MonoBehaviour
     private GameObject life3;
     private GameObject life2;
     private GameObject life1;
+    private GameObject Gameover;
+    public GameObject txtobj2;
 
 
 
@@ -29,13 +31,19 @@ public class movement_ship : MonoBehaviour
     {
         txtobjc = GameObject.Find("lifecounter");
         transform.position = new Vector3(0f, -4f, 0);
-        
+        txtobj2 = GameObject.Find("pointcounter2");
+
     }
     private void Awake()
     {
         life3 = GameObject.Find("life3");
         life2 = GameObject.Find("life2");
         life1 = GameObject.Find("life1");
+        Gameover = GameObject.Find("gameover");
+        Gameover.SetActive(false);
+        txtobj2 = GameObject.Find("pointcounter2");
+        txtobj2.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -87,6 +95,8 @@ public class movement_ship : MonoBehaviour
         
         if (playerhealth < 1)
         {
+            Gameover.SetActive(true);
+            txtobj2.SetActive(true);
             Destroy(this.gameObject);
         }
 

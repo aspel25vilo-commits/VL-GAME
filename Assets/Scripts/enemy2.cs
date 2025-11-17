@@ -7,21 +7,35 @@ public class enemy2 : MonoBehaviour
     public float enemyspeed = 1f;
     public GameObject txtobj;
     public GameObject exs;
+    public bool intmove = true;
+    public Animator objAnimator;
+    public GameObject txtobj2;
 
     private Vector3 movement = Vector3.zero;
     void Start()
     {
+        txtobj2 = GameObject.Find("pointcounter2");
         txtobj = GameObject.Find("pointcounter");
         StartCoroutine(Enmove());
     }
+    private void Awake()
+    {
+        transform.localScale = new Vector3(0.76f, 1.1f, 1f);
+    }
 
-    
+
     void Update()
     {
-        transform.Translate(movement.normalized * enemyspeed * Time.deltaTime); 
+        
+        if (intmove == false)
+        {    
+            transform.Translate(movement.normalized * enemyspeed * Time.deltaTime); 
+        }
         if (enemythealth < 1)
         {
             txtobj.GetComponent<point>().addpoints(2);
+            txtobj2.GetComponent<point>().addpoints(2);
+
             Destroy(this.gameObject);
             Instantiate(exs, transform.position, Quaternion.identity);
             
@@ -32,6 +46,11 @@ public class enemy2 : MonoBehaviour
     {
         while (true)
         {
+            if (intmove == true)
+            {
+                yield return new WaitForSeconds(1f);
+                intmove = false;
+            }
             int rull = 0;
             while (rull == 0)
             {

@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -4113745010340731626, guid: d30672875a3633f4287546d9988f94c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,11 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de612cb9137ff494f8126b5a190b4b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemythealth: 50
-  enemyspeed: 0.5
+  enemythealth: 20
+  enemyspeed: 0.1
   txtobj: {fileID: 0}
-  exs: {fileID: 6444146430321861641, guid: 8617e852ca5d4154bb1e28c1a770e054, type: 3}
-  enemyGameObject2: {fileID: 5675894850981122919, guid: 4e509071d235f3349b042b8f21e5a0fb, type: 3}
+  exs: {fileID: 4231028539223777439, guid: 735ff8a7856a51e408c3823f91073fe9, type: 3}
+  enemyGameObject2: {fileID: 1452281736945519866, guid: f6d316ab19950804fbb4716d27ca46ec, type: 3}
   spawnCooldown2: 2
   canspawn2: 1
   minValue: -1

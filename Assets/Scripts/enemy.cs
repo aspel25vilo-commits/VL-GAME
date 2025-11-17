@@ -6,11 +6,13 @@ public class enemy : MonoBehaviour
     public float enemyspeed = 1f;
     public GameObject txtobj;
     public GameObject exs;
+    public GameObject txtobj2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         txtobj = GameObject.Find("pointcounter");
+        txtobj2 = GameObject.Find("pointcounter2");
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class enemy : MonoBehaviour
         if (enemythealth < 1)
         {
             txtobj.GetComponent<point>().addpoints(1);
+            txtobj2.GetComponent<point>().addpoints(1);
             Destroy(this.gameObject);
             Instantiate(exs, transform.position, Quaternion.identity);
             

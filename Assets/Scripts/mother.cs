@@ -37,7 +37,9 @@ public class mother : MonoBehaviour
         {
             StartCoroutine(EnemySpawner2());
             canspawn2 = false;
+
         }
+        
     }
 
     public void takedamge(int dgtotake)
@@ -53,8 +55,10 @@ public class mother : MonoBehaviour
         }
         else
         {
-            Vector2 randomLocation = new Vector2(Random.Range(minValue, maxValue), transform.position.y);
-            Instantiate(enemyGameObject2, randomLocation, Quaternion.identity);
+            Vector2 Location1 = new Vector2(transform.position.x + 1, transform.position.y+1);
+            Instantiate(enemyGameObject2, Location1, Quaternion.identity);
+            Vector2 Location2 = new Vector2(transform.position.x - 1, transform.position.y+1);
+            Instantiate(enemyGameObject2, Location2, Quaternion.identity);
         }
         yield return new WaitForSeconds(spawnCooldown2);
         canspawn2 = true;
