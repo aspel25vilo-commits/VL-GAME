@@ -9,12 +9,11 @@ public class enemy2 : MonoBehaviour
     public GameObject exs;
     public bool intmove = true;
     public Animator objAnimator;
-    public GameObject txtobj2;
+    
 
     private Vector3 movement = Vector3.zero;
     void Start()
     {
-        txtobj2 = GameObject.Find("pointcounter2");
         txtobj = GameObject.Find("pointcounter");
         StartCoroutine(Enmove());
     }
@@ -34,11 +33,8 @@ public class enemy2 : MonoBehaviour
         if (enemythealth < 1)
         {
             txtobj.GetComponent<point>().addpoints(2);
-            txtobj2.GetComponent<point>().addpoints(2);
-
             Destroy(this.gameObject);
             Instantiate(exs, transform.position, Quaternion.identity);
-            
         }
            
     }

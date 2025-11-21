@@ -64,6 +64,7 @@ public class enemyspawner : MonoBehaviour
 
     private IEnumerator EnemySpawner()
     {
+        yield return new WaitForSeconds(spawnCooldown);
         if (minValue == 0 && maxValue == 0)
         {
             Instantiate(enemyGameObject, transform.position, Quaternion.identity);
@@ -73,11 +74,11 @@ public class enemyspawner : MonoBehaviour
             Vector2 randomLocation = new Vector2(Random.Range(minValue, maxValue), transform.position.y);
             Instantiate(enemyGameObject, randomLocation, Quaternion.identity);
         }
-        yield return new WaitForSeconds(spawnCooldown);
         canspawn = true;
     }
     private IEnumerator EnemySpawner2()
     {
+        yield return new WaitForSeconds(spawnCooldown2);
         if (minValue == 0 && maxValue == 0)
         {
             Instantiate(enemyGameObject2, transform.position, Quaternion.identity);
@@ -87,11 +88,11 @@ public class enemyspawner : MonoBehaviour
             Vector2 randomLocation = new Vector2(Random.Range(minValue, maxValue), transform.position.y);
             Instantiate(enemyGameObject2, randomLocation, Quaternion.identity);
         }
-        yield return new WaitForSeconds(spawnCooldown2);
         canspawn2 = true;
     }
     private IEnumerator Powerup1()
     {
+        yield return new WaitForSeconds(powercoldown);
         if (minValue == 0 && maxValue == 0)
         {
             Instantiate(powerobj, transform.position, Quaternion.identity);
@@ -101,12 +102,12 @@ public class enemyspawner : MonoBehaviour
             Vector2 randomLocation = new Vector2(Random.Range(minValue, maxValue), transform.position.y);
             Instantiate(powerobj, randomLocation, Quaternion.identity);
         }
-        yield return new WaitForSeconds(powercoldown);
         canpowerup = true;
     }
 
     private IEnumerator Powerup2()
     {
+        yield return new WaitForSeconds(powercoldown2);
         if (minValue == 0 && maxValue == 0)
         {
             Instantiate(powerobj2, transform.position, Quaternion.identity);
@@ -116,11 +117,11 @@ public class enemyspawner : MonoBehaviour
             Vector2 randomLocation = new Vector2(Random.Range(minValue, maxValue), transform.position.y);
             Instantiate(powerobj2, randomLocation, Quaternion.identity);
         }
-        yield return new WaitForSeconds(powercoldown2);
         canpowerup2 = true;
     }
     private IEnumerator Mother()
     {
+        yield return new WaitForSeconds(mothercoldown);
         if (minValue == 0 && maxValue == 0)
         {
             Instantiate(enemyGameObject, transform.position, Quaternion.identity);
@@ -130,7 +131,6 @@ public class enemyspawner : MonoBehaviour
             Vector2 randomLocation = new Vector2(Random.Range(minValue, maxValue), transform.position.y);
             Instantiate(motherobj, randomLocation, Quaternion.identity);
         }
-        yield return new WaitForSeconds(mothercoldown);
         canmother = true;
     }
 }

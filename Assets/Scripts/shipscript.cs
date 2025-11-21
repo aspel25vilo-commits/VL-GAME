@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class movement_ship : MonoBehaviour
@@ -21,7 +22,7 @@ public class movement_ship : MonoBehaviour
     private GameObject life2;
     private GameObject life1;
     private GameObject Gameover;
-    public GameObject txtobj2;
+    public GameObject score;
 
 
 
@@ -29,10 +30,9 @@ public class movement_ship : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        score = GameObject.Find("pointcounter");
         txtobjc = GameObject.Find("lifecounter");
         transform.position = new Vector3(0f, -4f, 0);
-        txtobj2 = GameObject.Find("pointcounter2");
-
     }
     private void Awake()
     {
@@ -41,9 +41,6 @@ public class movement_ship : MonoBehaviour
         life1 = GameObject.Find("life1");
         Gameover = GameObject.Find("gameover");
         Gameover.SetActive(false);
-        txtobj2 = GameObject.Find("pointcounter2");
-        txtobj2.SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -95,8 +92,9 @@ public class movement_ship : MonoBehaviour
         
         if (playerhealth < 1)
         {
+           
+            score.transform.position = new Vector3(730f, 250f, 1f);
             Gameover.SetActive(true);
-            txtobj2.SetActive(true);
             Destroy(this.gameObject);
         }
 

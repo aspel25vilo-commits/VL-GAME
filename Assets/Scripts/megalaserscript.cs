@@ -38,6 +38,13 @@ public class megalaserscript : MonoBehaviour
 
 
             }
+        if (other.tag == "mother")
+        {
+            other.GetComponent<mother>().takedamge(10);
+            Debug.Log("Hit" + other.name);
+
+
+        }
         //other.GetComponent<movement_ship>().takedamge();
 
 

@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class wall : MonoBehaviour
 {
-    public GameObject exs;
+    public GameObject player; 
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,20 +15,23 @@ public class wall : MonoBehaviour
     {
         
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "enemy")
         {
-            other.GetComponent<movement_ship>().takedamge();
-            Instantiate(exs, transform.position, Quaternion.identity);
-
+            player.GetComponent<movement_ship>().takedamge();
         }
         if (other.tag == "mother")
         {
-            other.GetComponent<movement_ship>().takedamge();
-            Instantiate(exs, transform.position, Quaternion.identity);
-
+            player.GetComponent<movement_ship>().takedamge();
+        }
+        if (other.tag == "enemy2")
+        {
+            player.GetComponent<movement_ship>().takedamge();
         }
     }
-   
+
+
+
 }
